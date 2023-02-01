@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "anomalies-service.fullname" . }}
+  labels:
+    {{- include "anomalies-service.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "anomalies-service.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "anomalies-service.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: HOST_URI
+              value: pgm-l4v03g4zudcg21rr0o.pgsql.me-central-1.rds.aliyuncs.com
+            - name: PG_PORT
+              value: "5432"
+            - name: PG_USER
+              value: server
+            - name: PG_PWD
+              value: Muqsit123@
+            - name: PG_DB
+              value: Drift
+            - name: MONGO_HOST_URI
+              value: "cluster0.nh9f7vp.mongodb.net"
+            - name: MONGO_USER
+              value: server
+            - name: MONGO_PWD
+              value: Qf?dpWT2Kd69Qz47YzFa
+            - name: MONGO_DB
+              value: admin
+            - name: MONGO_PORT
+              value: "27017"
+            - name: MONGO_AUTH_MECH
+              value: DEFAULT
+            - name: SECRET_KEY
+              value: 29a5b794fbf98135c40ae842452eecec9d1207780ddc68caab0031482663dba1
+            - name: ACCESS_TOKEN_EXPIRE_MINUTES
+              value: "10080"
+            - name: LOCAL_HOST_AUTH
+              value: http://auth-service:8000
+            - name: AWS_ACCESS_KEY
+              value: AKIA4LIKQYIECLOSUVKR
+            - name: AWS_SECRET_KEY
+              value: 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
+            - name: AWS_BUCKET_NAME
+              value: new-autilent
+            - name: AWS_REGION
+              value: us-east-2
+            - name: AWS_IMAGE_KEY
+              value: anomalies/

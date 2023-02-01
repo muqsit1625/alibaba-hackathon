@@ -1,0 +1,8 @@
+pymongo
+requests
+python-multipart
+redis
+google-api-python-client
+google
+protobuf==3.19.0
+pika

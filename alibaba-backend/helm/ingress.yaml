@@ -1,0 +1,78 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: microservices-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: http://auth-service:8000
+    http:
+      paths:
+      - path: /auth
+        pathType: Prefix
+        backend:
+          service:
+            name: auth-service
+            port:
+              number: 8000
+      - path: /reporting
+        pathType: Prefix
+        backend:
+          service:
+            name: reporting-service
+            port:
+              number: 8000
+      - path: /vehicles
+        pathType: Prefix
+        backend:
+          service:
+            name: vehicles-service
+            port:
+              number: 8000
+      - path: /anomalies
+        pathType: Prefix
+        backend:
+          service:
+            name: anomalies-service
+            port:
+              number: 8000
+      - path: /liveview
+        pathType: Prefix
+        backend:
+          service:
+            name: liveview-service
+            port:
+              number: 8000
+      - path: /drivers
+        pathType: Prefix
+        backend:
+          service:
+            name: drivers-service
+            port:
+              number: 8000
+      - path: /devices
+        pathType: Prefix
+        backend:
+          service:
+            name: devices-service
+            port:
+              number: 8000
+      - path: /managers
+        pathType: Prefix
+        backend:
+          service:
+            name: managers-service
+            port:
+              number: 8000
+  - host: demo.autilent.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: fleet-manager-frontend
+            port:
+              number: 8000

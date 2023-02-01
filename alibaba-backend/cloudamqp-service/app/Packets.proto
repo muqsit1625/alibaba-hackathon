@@ -1,0 +1,160 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+
+message DBPacket{
+    string type = 1;
+    google.protobuf.Any payload = 2;
+    string sent_time= 3;
+    string session_id = 4;
+    string trip_id = 5;
+    string driver_id = 6;
+    string vehicle_id = 7;
+    string packet_id = 8;
+    string manager_id = 9;
+    
+}
+
+
+message OnlinePacket{
+    string anomaly_id = 1;
+    string device_id = 2;
+    string status = 3;
+    string epochtime = 4;
+    string plate_no = 5;
+    string time_stamp = 6;
+}
+
+
+message FaceRecognitionPacket{
+    string anomaly_id = 1;
+    string device_id = 2;
+    string driver_id = 3;
+    string driverapproved = 4;
+    string plate_no = 5;
+    string time_stamp = 6;
+}
+
+
+
+message DrowsyPacket{
+    string anomaly_id = 1;
+    string drowsy_count = 2;
+    string manager_id = 3;
+    string plate_no = 4;
+    string time_stamp = 5;
+}
+
+message DistractedPacket{
+    string anomaly_id = 1;
+    string distracted_count = 2;
+    string manager_id = 3;
+    string plate_no = 4;
+    string time_stamp = 5;
+}
+
+
+message GPSPacket{
+    string anomaly_id = 1;
+    string device_id = 2;
+    string manager_id = 3;
+    string plate_no = 4;
+    string longitude = 5;
+    string latitude = 6;
+    string speed = 7;
+    string time = 8;
+    float last_distance = 9;
+    string time_stamp = 10;
+    bool at_warehouse = 11;
+}
+
+message IdlePacket{
+    string anomaly_id = 1;
+    string device_id = 2;
+    string manager_id = 3;
+    string plate_no = 4;
+    string start_time = 5;
+    string end_time = 6;
+    string idle_time = 7;
+    string time_stamp = 8;
+}
+
+message DriverPacket{
+    string driver_id = 1;
+    string name = 2;
+    int32 image_channel = 3;
+    int32 image_width = 4;
+    int32 image_height = 5;
+    bytes embedding = 6;
+}
+
+
+message DBDataPacket{
+    string manager_id = 1;
+    string plate_no = 2;
+    string device_id = 3;
+    string model_name = 4;
+    string serial_number = 5;
+    repeated DriverPacket Drivers = 6;
+    string trip_id = 7;
+    string vehicle_id = 8;
+}
+
+message MobilePacket{
+    string anomaly_id = 1;
+    string device_id = 2;
+    string manager_id = 3;
+    string plate_no = 4;
+    string mobile_found = 5;
+    string time_stamp = 6;
+}
+
+message MobileDriverPacket{
+    string label = 1;
+    repeated string embedding = 2;
+}
+
+
+
+message DBMobileDataPacket{
+    string manager_id = 1;
+    string plate_no = 2;
+    string device_id = 3;
+    repeated MobileDriverPacket Drivers = 4;
+}
+
+message MetricsPacket {
+   string time=1;
+   string uptime=2;
+   string jet_clocks=3;
+   string nvp_model =4;
+   int32 cpu1=5;
+   int32 cpu2=6;
+   int32 cpu3=7;
+   int32 cpu4=8;
+   int32 gpu=9;
+   int32 ram=10;
+   int32 emc=11;
+   int32 iram=12;
+   int32 swap=13;
+   int32 ape=14;
+   string nvenc=15;
+   string nvdec=16;
+   string nvjpg=17;
+   float fan=18;
+   float temp_ao=19;
+   float temp_cpu=20;
+   float temp_gpu=21;
+   float temp_pll=22;
+   float temp_thermal=23;
+   int32 power_cur=24;
+   int32 power_avg=25;
+   string device_id = 26;
+   string plate_no = 27;
+   string manager_id = 28;
+   int32 free_disk_size = 29;
+   int32 used_disk_size = 30;
+   string jetpack_version = 31;
+   float net_in= 32;
+   float net_out= 33;
+
+}

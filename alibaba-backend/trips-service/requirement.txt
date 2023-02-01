@@ -1,0 +1,10 @@
+pymongo
+requests
+python-multipart
+redis
+google-api-python-client
+google
+pika
+pydantic
+psycopg2
+pymongo

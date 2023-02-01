@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+psycopg2-binary
+psycopg2
+pymongo
+python-multipart
+requests
+boto3
+botocore
+fastapi-pagination[all]

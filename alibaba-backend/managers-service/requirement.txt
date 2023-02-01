@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+psycopg2-binary
+psycopg2
+pymongo
+boto3
+botocore
+passlib[bcrypt]
+python-multipart
+requests

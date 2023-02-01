@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+psycopg2-binary
+psycopg2
+fastapi-login
+pymongo
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart

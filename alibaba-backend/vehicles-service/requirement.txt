@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+psycopg2-binary
+psycopg2
+pymongo
+boto3
+botocore
+python-multipart
+requests
+opencv-python
+numpy

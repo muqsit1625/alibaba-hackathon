@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pymongo
+python-multipart
+requests
+pika
+psycopg-binary
+psycopg2==2.8.6
