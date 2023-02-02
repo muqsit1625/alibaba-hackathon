@@ -67,3 +67,5 @@ spec:
               value: us-east-2
             - name: AWS_IMAGE_KEY
               value: managers/
+      imagePullSecrets:
+        - name: regcred

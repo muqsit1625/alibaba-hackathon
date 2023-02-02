@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: public.ecr.aws/y6h8v2m5/autilent/managers-service
+  repository: dev-registry-registry.me-central-1.cr.aliyuncs.com/autilent-namespace/managers-service
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"

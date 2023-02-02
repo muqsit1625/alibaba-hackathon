@@ -57,3 +57,5 @@ spec:
               value: "10080"
             - name: LOCAL_HOST_AUTH
               value: http://auth-service:8000
+      imagePullSecrets:
+        - name: regcred

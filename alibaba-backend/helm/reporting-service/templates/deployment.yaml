@@ -59,3 +59,5 @@ spec:
               value: http://auth-service:8000
             - name: CLOUDAMQP_URL
               value: amqps://MjphbXFwLXNnLTZ3cjMyajM0YzA3MzpMVEFJNXQ5a25zNzdwdUpvWHpFVVBjdVo=:QkU4MzdDRkY2NTJDQ0FBMzdFNEQwRTBBMEI4RTBCQUQ2OERERTE3NToxNjc1MTcyMzcyMzkw@amqp-sg-6wr32j34c073.me-central-1.amqp-0.vpc.mq.amqp.aliyuncs.com/MjphbXFwLXNnLTZ3cjMyajM0YzA3MzpMVEFJNXQ5a25zNzdwdUpvWHpFVVBjdVo=
+      imagePullSecrets:
+        - name: regcred
